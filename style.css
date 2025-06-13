@@ -99,23 +99,41 @@ header p {
     resize: vertical;
 }
 
-#generate-btn {
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#generate-btn, #reset-btn {
     display: block;
     width: 100%;
     padding: 1rem;
-    margin-top: 2rem;
-    background-color: var(--primary-color);
-    color: var(--white);
     border: none;
     border-radius: 8px;
     font-size: 1.125rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+#generate-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
 }
 
 #generate-btn:hover {
     background-color: #2563EB; /* Biru lebih gelap */
+}
+
+#reset-btn {
+    background-color: var(--light-gray);
+    color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+}
+
+#reset-btn:hover {
+    background-color: #D1D5DB;
 }
 
 .output-container h2 {
