@@ -96,8 +96,25 @@ document.addEventListener('DOMContentLoaded', () => {
     populateSelect('gerakan-kamera', options.gerakanKamera);
 
     const generateBtn = document.getElementById('generate-btn');
+    const resetBtn = document.getElementById('reset-btn');
     const promptIndonesiaEl = document.getElementById('prompt-indonesia');
     const promptInggrisEl = document.getElementById('prompt-inggris');
+    const formInputs = document.querySelectorAll('.form-grid input, .form-grid select, .form-grid textarea');
+    const negativePromptTextarea = document.getElementById('negative-prompt');
+    const defaultNegativePrompt = negativePromptTextarea.value;
+
+    resetBtn.addEventListener('click', () => {
+        formInputs.forEach(input => {
+            if (input.tagName === 'SELECT') {
+                input.selectedIndex = 0;
+            } else {
+                input.value = '';
+            }
+        });
+        negativePromptTextarea.value = defaultNegativePrompt;
+        promptIndonesiaEl.value = '';
+        promptInggrisEl.innerHTML = '';
+    });
 
     generateBtn.addEventListener('click', async () => {
         // Mengumpulkan nilai dari form
@@ -113,7 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
             suasanaVideo: document.getElementById('suasana-video').value,
             suara: document.getElementById('suara').value,
             kalimat: document.getElementById('kalimat').value,
-            detail: document.getElementById('detail').value
+            detail: document.getElementById('detail').value,
+            negativePrompt: document.getElementById('negative-prompt').value
         };
 
         // Membuat prompt dalam Bahasa Indonesia
@@ -141,6 +159,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (data.detail) {
             prompt += `Detail tambahan: ${data.detail}`;
+        }
+        if (data.negativePrompt) {
+            prompt += `\n\nNEGATIVE PROMPT: ${data.negativePrompt}`;
         }
         return prompt.trim();
     }
@@ -219,6 +240,13 @@ document.addEventListener('DOMContentLoaded', () => {
             prompt += `Additional details: ${data.detail}`;
         }
         
-        return prompt.trim();
+        prompt = prompt.trim();
+
+        if (data.negativePrompt) {
+            const negativeEN = data.negativePrompt.replace(/Hindari:/gi, "Avoid:");
+            prompt += `\n\nNEGATIVE PROMPT: ${negativeEN}`;
+        }
+
+        return prompt;
     }
 }); 
