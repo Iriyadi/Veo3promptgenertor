@@ -73,8 +73,15 @@
                         <label for="detail">12. Detail Tambahan</label>
                         <textarea id="detail" placeholder="Contoh: Latar belakang dipenuhi bintang dan nebula berwarna-warni. Astronot mengenakan helm dengan pantulan galaksi."></textarea>
                     </div>
+                    <div class="form-group full-width">
+                        <label for="negative-prompt">13. NEGATIVE PROMPT</label>
+                        <textarea id="negative-prompt">Hindari: teks di layar, subtitle, tulisan di video, font, logo, distorsi, artefak, anomali, wajah ganda, anggota badan cacat, tangan tidak normal, orang tambahan, objek mengganggu, kualitas rendah, buram, glitch, suara robotik, suara pecah.</textarea>
+                    </div>
                 </div>
-                <button id="generate-btn">Hasilkan Prompt</button>
+                <div class="button-group">
+                    <button id="generate-btn">Hasilkan Prompt</button>
+                    <button type="button" id="reset-btn">Reset</button>
+                </div>
             </div>
             <div class="output-container">
                 <h2>Hasil Prompt</h2>
