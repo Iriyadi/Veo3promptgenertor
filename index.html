@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veo 3 Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Veo 3 Prompt Generator</h1>
+            <p>Buat prompt video yang detail dan terstruktur untuk Google Veo 3.</p>
+        </header>
+        <main>
+            <div class="form-container">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="subjek">1. Subjek</label>
+                        <input type="text" id="subjek" placeholder="Contoh: Seorang astronot, seekor kucing oranye">
+                    </div>
+                    <div class="form-group">
+                        <label for="aksi">2. Aksi</label>
+                        <input type="text" id="aksi" placeholder="Contoh: Menjelajahi gua kristal, bermain piano">
+                    </div>
+                    <div class="form-group">
+                        <label for="ekspresi">3. Ekspresi</label>
+                        <input type="text" id="ekspresi" placeholder="Contoh: Wajah takjub, tersenyum bahagia">
+                    </div>
+                    <div class="form-group">
+                        <label for="tempat">4. Tempat</label>
+                        <input type="text" id="tempat" placeholder="Contoh: Di planet Mars, di sebuah kafe di Paris">
+                    </div>
+                    <div class="form-group">
+                        <label for="waktu">5. Waktu</label>
+                        <select id="waktu">
+                            <!-- Opsi akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gerakan-kamera">6. Gerakan Kamera</label>
+                        <select id="gerakan-kamera">
+                            <!-- Opsi akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="pencahayaan">7. Pencahayaan</label>
+                        <select id="pencahayaan">
+                            <!-- Opsi akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gaya-video">8. Gaya Video</label>
+                        <select id="gaya-video">
+                            <!-- Opsi akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="suasana-video">9. Suasana Video</label>
+                        <select id="suasana-video">
+                            <!-- Opsi akan diisi oleh JavaScript -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="suara">10. Suara atau Musik</label>
+                        <input type="text" id="suara" placeholder="Contoh: Suara ombak, musik jazz instrumental">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="kalimat">11. Kalimat yang Diucapkan</label>
+                        <input type="text" id="kalimat" placeholder="Contoh: 'Ini adalah satu langkah kecil bagi manusia...'">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="detail">12. Detail Tambahan</label>
+                        <textarea id="detail" placeholder="Contoh: Latar belakang dipenuhi bintang dan nebula berwarna-warni. Astronot mengenakan helm dengan pantulan galaksi."></textarea>
+                    </div>
+                </div>
+                <button id="generate-btn">Hasilkan Prompt</button>
+            </div>
+            <div class="output-container">
+                <h2>Hasil Prompt</h2>
+                <div class="prompt-results">
+                    <div class="result-column">
+                        <h3>Bahasa Indonesia (Dapat Diedit)</h3>
+                        <textarea id="prompt-indonesia"></textarea>
+                    </div>
+                    <div class="result-column">
+                        <h3>Bahasa Inggris (Final)</h3>
+                        <div id="prompt-inggris" class="final-prompt"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
